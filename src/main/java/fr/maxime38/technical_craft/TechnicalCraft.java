@@ -1,6 +1,8 @@
 package fr.maxime38.technical_craft;
 
 import com.mojang.logging.LogUtils;
+import fr.maxime38.technical_craft.block.ModBlocks;
+import fr.maxime38.technical_craft.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +23,9 @@ public class TechnicalCraft
     public TechnicalCraft(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

@@ -1,0 +1,6 @@
+{
+  "parent": "item/cube_all",
+  "textures": {
+    "all": "technical_craft:block/beamion_block"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "technical_craft:beamion_block"
+    }
+  ],
+  "result": {
+    "item": "technical_craft:beamion",
+    "count": 9
+  }
+}

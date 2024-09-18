@@ -52,5 +52,6 @@ public class RGBLampBlock extends Block {
         builder.add(RED);
         builder.add(GREEN);
         builder.add(BLUE);
+        builder.add(COLOR_STATE);
     }
 }

@@ -4,6 +4,7 @@ import fr.maxime38.technical_craft.TechnicalCraft;
 import fr.maxime38.technical_craft.block.custom.ResiPoutreBlock;
 import fr.maxime38.technical_craft.item.ModCreativeModeTab;
 import fr.maxime38.technical_craft.item.ModItems;
+import fr.maxime38.technical_craft.item.custom.CustomBlockItem;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -17,9 +18,14 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class ModBlocks {
+
+    public static List<String> customBlocksItems = Arrays.asList("beamion_resistance_block", "etc");
+
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TechnicalCraft.MODID);
 
     public static final RegistryObject<Block> BEAMION_BLOCK = registerBlock("beamion_block",
@@ -63,7 +69,11 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+        if(customBlocksItems.contains(name)) {
+            ModItems.ITEMS.register(name, () -> new CustomBlockItem(block.get(), new Item.Properties().tab(tab), name)); // Custom stuff like tooltips
+        } else {
+            ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+        }
     }
 
 

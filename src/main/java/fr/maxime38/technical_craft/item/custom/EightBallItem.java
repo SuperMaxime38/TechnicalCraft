@@ -39,7 +39,8 @@ public class EightBallItem extends Item {
     @Override
     public void appendHoverText(@NotNull ItemStack item, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
 
-        components.add(Component.literal("This is a really useful item !\n"));
+        components.add(Component.literal("This is a really useful item !"));
+        components.add(Component.literal(""));
         if(Screen.hasShiftDown()) {
             components.add(Component.literal("I'm joking this is useless"));
         } else {

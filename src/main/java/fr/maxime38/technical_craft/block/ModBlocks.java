@@ -5,6 +5,7 @@ import fr.maxime38.technical_craft.block.custom.ResiPoutreBlock;
 import fr.maxime38.technical_craft.item.ModCreativeModeTab;
 import fr.maxime38.technical_craft.item.ModItems;
 import fr.maxime38.technical_craft.item.custom.CustomBlockItem;
+import fr.maxime38.technical_craft.item.custom.RGBLampBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -55,6 +56,15 @@ public class ModBlocks {
                             .of(Material.STONE)
                             .strength(7f)
                             .requiresCorrectToolForDrops())
+
+            , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
+
+    public static final RegistryObject<Block> RGB_LAMP = registerBlock("rgb_lamp",
+            () -> new RGBLampBlock(
+                    BlockBehaviour.Properties
+                            .of(Material.GLASS)
+                            .strength(4f)
+                            .lightLevel(state -> state.getValue(RGBLampBlock.LIT) ? 15 : 0))
 
             , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 

@@ -36,7 +36,8 @@ public class CustomBlockItem extends BlockItem {
         HashMap<String, String> extradata = datas.get(itemName);
 
         if(extradata.containsKey("tooltip")) {
-            components.add(Component.literal(extradata.get("tooltip") + "\n"));
+            components.add(Component.literal(extradata.get("tooltip")));
+            components.add(Component.literal(""));
             if(Screen.hasShiftDown() && extradata.containsKey("shift_tooltip")) {
                 components.add(Component.literal(extradata.get("shift_tooltip")));
             } else {

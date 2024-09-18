@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "lit=false": { "model":  "technical_craft:block/rgb_lamp/rgb_lamp_off"},
+    "lit=true,red=true,green=false,blue=false": {"model": "technical_craft:block/rgb_lamp/red"},
+    "lit=true,red=false,green=true,blue=false": {"model": "technical_craft:block/rgb_lamp/green"},
+    "lit=true,red=false,green=false,blue=true": {"model": "technical_craft:block/rgb_lamp/blue"},
+    "lit=true,red=true,green=true,blue=false": {"model": "technical_craft:block/rgb_lamp/yellow"},
+    "lit=true,red=true,green=false,blue=true": {"model": "technical_craft:block/rgb_lamp/purple"},
+    "lit=true,red=false,green=true,blue=true": {"model": "technical_craft:block/rgb_lamp/aqua"},
+    "lit=true,red=true,green=true,blue=true": {"model": "technical_craft:block/rgb_lamp/white"},
+
+    "lit=true,red=false,green=false,blue=false": {"model": "technical_craft:block/rgb_lamp/white"}
+  }
+}

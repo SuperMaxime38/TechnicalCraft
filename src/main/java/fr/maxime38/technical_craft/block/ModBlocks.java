@@ -1,6 +1,7 @@
 package fr.maxime38.technical_craft.block;
 
 import fr.maxime38.technical_craft.TechnicalCraft;
+import fr.maxime38.technical_craft.block.custom.ResiPoutreBlock;
 import fr.maxime38.technical_craft.item.ModCreativeModeTab;
 import fr.maxime38.technical_craft.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -41,14 +42,28 @@ public class ModBlocks {
             , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 
 
+
+    public static final RegistryObject<Block> BEAMION_RESISTANCE_BLOCK = registerBlock("beamion_resistance_block",
+            () -> new ResiPoutreBlock(
+                    BlockBehaviour.Properties
+                            .of(Material.STONE)
+                            .strength(7f)
+                            .requiresCorrectToolForDrops())
+
+            , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
+
+
+
+    // UTILS FUNCTION THAT ARE NOT BLOCKS
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, tab);
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
     }
 
 

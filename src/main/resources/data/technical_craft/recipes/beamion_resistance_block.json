@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#@#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "technical_craft:beamion"
+    },
+    "@": {
+      "item": "technical_craft:beamion_block"
+    }
+  },
+  "result": {
+    "item": "technical_craft:beamion_resistance_block"
+  }
+}

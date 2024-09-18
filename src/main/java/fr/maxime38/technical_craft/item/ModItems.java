@@ -1,6 +1,7 @@
 package fr.maxime38.technical_craft.item;
 
 import fr.maxime38.technical_craft.TechnicalCraft;
+import fr.maxime38.technical_craft.item.custom.EightBallItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,6 +24,11 @@ public class ModItems {
                     .stacksTo(69)
                     .tab(ModCreativeModeTab.TECHNICAL_CRAFT_TAB)
                     .rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> EIGHT_BALL  =ITEMS.register("eight_ball", () -> new EightBallItem(
+            new Item.Properties()
+                    .stacksTo(8)
+                    .tab(ModCreativeModeTab.TECHNICAL_CRAFT_TAB)));
 
 
 

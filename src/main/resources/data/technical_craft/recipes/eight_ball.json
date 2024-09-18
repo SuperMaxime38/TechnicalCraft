@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#@#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:snowball"
+    },
+    "@": {
+      "item": "technical_craft:beamion"
+    }
+  },
+  "result": {
+    "item": "technical_craft:eight_ball"
+  }
+}

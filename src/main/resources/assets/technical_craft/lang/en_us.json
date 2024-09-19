@@ -7,6 +7,9 @@
   "block.technical_craft.beamion_ore": "Beamion Ore",
   "block.technical_craft.beamion_resistance_block": "Beamion Resistance Block",
   "block.technical_craft.rgb_lamp": "RGB Lamp",
+  "block.technical_craft.red_lamp": "§4Red Lamp",
+  "block.technical_craft.green_lamp": "§aGreen Lamp",
+  "block.technical_craft.blue_lamp": "§9Blue Lamp",
 
   "itemGroup.technical_craft_tab": "Technical Craft Tab"
 }

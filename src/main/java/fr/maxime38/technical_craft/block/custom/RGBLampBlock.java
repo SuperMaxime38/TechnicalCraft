@@ -1,6 +1,7 @@
-package fr.maxime38.technical_craft.item.custom;
+package fr.maxime38.technical_craft.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;

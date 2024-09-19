@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=false": { "model":  "technical_craft:block/rgb_lamp/rgb_lamp_off"},
+    "lit=true": {"model": "technical_craft:block/rgb_lamp/green"}
+  }
+}

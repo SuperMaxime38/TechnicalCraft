@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#@#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:green_dye"
+    },
+    "@": {
+      "item": "minecraft:redstone_lamp"
+    }
+  },
+  "result": {
+    "item": "technical_craft:green_lamp"
+  }
+}

@@ -68,6 +68,33 @@ public class ModBlocks {
 
             , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 
+    public static final RegistryObject<Block> RED_LAMP = registerBlock("red_lamp",
+            () -> new RedLampBlock(
+                    BlockBehaviour.Properties
+                            .of(Material.GLASS)
+                            .strength(3f)
+                            .lightLevel(state -> state.getValue(RedLampBlock.LIT) ? 15 : 0))
+
+            , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
+
+    public static final RegistryObject<Block> BLUE_LAMP = registerBlock("blue_lamp",
+            () -> new BlueLampBlock(
+                    BlockBehaviour.Properties
+                            .of(Material.GLASS)
+                            .strength(3f)
+                            .lightLevel(state -> state.getValue(BlueLampBlock.LIT) ? 15 : 0))
+
+            , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
+
+    public static final RegistryObject<Block> GREEN_LAMP = registerBlock("green_lamp",
+            () -> new GreenLampBlock(
+                    BlockBehaviour.Properties
+                            .of(Material.GLASS)
+                            .strength(3f)
+                            .lightLevel(state -> state.getValue(GreenLampBlock.LIT) ? 15 : 0))
+
+            , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
+
 
 
     // UTILS FUNCTION THAT ARE NOT BLOCKS

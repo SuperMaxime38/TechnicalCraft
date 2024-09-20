@@ -1,8 +1,10 @@
 package fr.maxime38.technical_craft.item;
 
 import fr.maxime38.technical_craft.TechnicalCraft;
+import fr.maxime38.technical_craft.block.ModBlocks;
 import fr.maxime38.technical_craft.item.custom.EightBallItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,10 +27,8 @@ public class ModItems {
                     .tab(ModCreativeModeTab.TECHNICAL_CRAFT_TAB)
                     .rarity(Rarity.RARE)));
 
-    public static final RegistryObject<Item> EIGHT_BALL  =ITEMS.register("eight_ball", () -> new EightBallItem(
-            new Item.Properties()
-                    .stacksTo(8)
-                    .tab(ModCreativeModeTab.TECHNICAL_CRAFT_TAB)));
+    public static final RegistryObject<Item> BEAMION_SEEDS  =ITEMS.register("beamion_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAMION_CROP.get(),
+            new Item.Properties().tab(ModCreativeModeTab.TECHNICAL_CRAFT_TAB).stacksTo(64)));
 
 
 

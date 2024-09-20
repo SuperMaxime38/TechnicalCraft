@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "abc",
+    "@ @"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "a": {
+      "item": "technical_craft:red_lamp"
+    },
+    "b": {
+      "item": "technical_craft:green_lamp"
+    },
+    "c": {
+      "item": "technical_craft:blue_lamp"
+    },
+    "@": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "count": 3,
+    "item": "technical_craft:rgb_lamp"
+  }
+}

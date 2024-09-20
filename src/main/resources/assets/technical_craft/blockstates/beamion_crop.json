@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "age=0": {"model": "technical_craft:block/beamion_crop/stage0"},
+    "age=1": {"model": "technical_craft:block/beamion_crop/stage1"},
+    "age=2": {"model": "technical_craft:block/beamion_crop/stage2"},
+    "age=3": {"model": "technical_craft:block/beamion_crop/stage3"},
+    "age=4": {"model": "technical_craft:block/beamion_crop/stage4"},
+    "age=5": {"model": "technical_craft:block/beamion_crop/stage5"},
+    "age=6": {"model": "technical_craft:block/beamion_crop/stage6"}
+  }
+}

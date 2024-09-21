@@ -104,9 +104,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> WIRE = registerBlock("wire",
             () -> new WireBlock(
                     BlockBehaviour.Properties
-                            .of(Material.STONE)
+                            .of(Material.METAL)
                             .strength(3.5f)
-                            .lightLevel(state -> state.getValue(WireBlock.POWERED) ? 7 : 0))
+                            .lightLevel(state -> state.getValue(WireBlock.LIGHT)))
 
             , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 

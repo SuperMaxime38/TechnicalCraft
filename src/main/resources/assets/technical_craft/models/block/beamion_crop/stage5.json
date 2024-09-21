@@ -1,7 +1,7 @@
 {
 	"parent": "block/crop",
 	"textures": {
-		"crop": "technical_craft:block/beamino_crop/stage5"
+		"crop": "technical_craft:block/beamion_crop/stage5"
 	},
 	"render_type": "cutout"
 }

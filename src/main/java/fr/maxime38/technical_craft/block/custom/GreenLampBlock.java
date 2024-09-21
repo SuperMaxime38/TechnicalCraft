@@ -21,13 +21,16 @@ public class GreenLampBlock extends Block {
         super(properties);
     }
 
-    @Override
-    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
-        if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND) {
-            level.setBlock(pos, state.cycle(LIT), 3);
-        }
 
-        return super.use(state, level, pos, player, hand, hitResult);
+    @Override
+    public void neighborChanged(@NotNull BlockState state, Level world, @NotNull BlockPos pos, @NotNull Block block, @NotNull BlockPos neighborPos, boolean isMoving) {
+        if (!world.isClientSide()) {
+            boolean isPowered = state.getValue(LIT);
+            if (isPowered != world.hasNeighborSignal(pos)) {
+                world.setBlock(pos, state.setValue(LIT, world.hasNeighborSignal(pos)), 3);
+                world.updateNeighborsAt(pos, this);
+            }
+        }
     }
 
     @Override

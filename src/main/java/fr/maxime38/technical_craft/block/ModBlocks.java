@@ -1,15 +1,10 @@
 package fr.maxime38.technical_craft.block;
 
 import fr.maxime38.technical_craft.TechnicalCraft;
-import fr.maxime38.technical_craft.block.custom.BeamionCropBlock;
-import fr.maxime38.technical_craft.block.custom.ResiPoutreBlock;
+import fr.maxime38.technical_craft.block.custom.*;
 import fr.maxime38.technical_craft.item.ModCreativeModeTab;
 import fr.maxime38.technical_craft.item.ModItems;
-import fr.maxime38.technical_craft.item.custom.BlueLampBlock;
 import fr.maxime38.technical_craft.item.custom.CustomBlockItem;
-import fr.maxime38.technical_craft.block.custom.RGBLampBlock;
-import fr.maxime38.technical_craft.item.custom.GreenLampBlock;
-import fr.maxime38.technical_craft.item.custom.RedLampBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -105,6 +100,15 @@ public class ModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.WHEAT))
 
     );
+
+    public static final RegistryObject<Block> WIRE = registerBlock("wire",
+            () -> new WireBlock(
+                    BlockBehaviour.Properties
+                            .of(Material.STONE)
+                            .strength(3.5f)
+                            .lightLevel(state -> state.getValue(WireBlock.POWERED) ? 7 : 0))
+
+            , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 
 
 

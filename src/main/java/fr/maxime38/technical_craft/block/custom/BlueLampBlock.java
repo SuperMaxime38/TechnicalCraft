@@ -1,4 +1,4 @@
-package fr.maxime38.technical_craft.item.custom;
+package fr.maxime38.technical_craft.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;

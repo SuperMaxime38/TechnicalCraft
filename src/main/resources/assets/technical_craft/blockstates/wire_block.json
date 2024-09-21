@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model":  "technical_craft:block/wire_block_off"},
+    "powered=true": { "model":  "technical_craft:block/wire_block_on"}
+  }
+}

@@ -3,6 +3,7 @@
   "item.technical_craft.raw_beamion": "Raw Beamion",
   "item.technical_craft.eight_ball": "§9Eight Ball",
   "item.technical_craft.beamion_seeds": "Beamion §aseeds",
+  "item.technical_craft.chair_poutrifiee": "Chair Poutrifiée",
 
   "block.technical_craft.beamion_block": "Block of Beamion",
   "block.technical_craft.beamion_ore": "Beamion Ore",
@@ -12,6 +13,7 @@
   "block.technical_craft.green_lamp": "§aGreen Lamp",
   "block.technical_craft.blue_lamp": "§9Blue Lamp",
   "block.technical_craft.beamion_crop": "Beamion Crop",
+  "block.technical_craft.wire": "Wire",
 
   "itemGroup.technical_craft_tab": "Technical Craft Tab"
 }

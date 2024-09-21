@@ -3,6 +3,7 @@ package fr.maxime38.technical_craft.item;
 import fr.maxime38.technical_craft.TechnicalCraft;
 import fr.maxime38.technical_craft.block.ModBlocks;
 import fr.maxime38.technical_craft.item.custom.EightBallItem;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
@@ -29,6 +30,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> BEAMION_SEEDS  =ITEMS.register("beamion_seeds", () -> new ItemNameBlockItem(ModBlocks.BEAMION_CROP.get(),
             new Item.Properties().tab(ModCreativeModeTab.TECHNICAL_CRAFT_TAB).stacksTo(64)));
+
+    public static final RegistryObject<Item> CHAIR_POUTRIFIEE  =ITEMS.register("chair_poutrifiee", () -> new Item(new Item.Properties()
+            .tab(ModCreativeModeTab.TECHNICAL_CRAFT_TAB)
+            .stacksTo(64)
+            .food(new FoodProperties.Builder().nutrition(1).build())));
 
 
 

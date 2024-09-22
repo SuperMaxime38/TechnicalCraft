@@ -25,7 +25,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
 
-    public static List<String> customBlocksItems = Arrays.asList("beamion_resistance_block", "etc");
+    public static List<String> customBlocksItems = Arrays.asList("beamion_resistance_block", "rgb_lamp");
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TechnicalCraft.MODID);
 

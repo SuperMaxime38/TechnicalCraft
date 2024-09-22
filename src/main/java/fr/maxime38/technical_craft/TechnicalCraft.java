@@ -3,6 +3,7 @@ package fr.maxime38.technical_craft;
 import com.mojang.logging.LogUtils;
 import fr.maxime38.technical_craft.block.ModBlocks;
 import fr.maxime38.technical_craft.item.ModItems;
+import fr.maxime38.technical_craft.villager.ModVillager;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,6 +29,7 @@ public class TechnicalCraft
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModVillager.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -36,7 +38,9 @@ public class TechnicalCraft
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(() -> {
+            ModVillager.registerPOIs();
+        });
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

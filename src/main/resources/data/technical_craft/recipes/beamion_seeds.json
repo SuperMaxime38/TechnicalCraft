@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#@#",
+    "@-@",
+    "#@#"
+  ],
+  "key": {
+    "#": {
+      "item": "technical_craft:beamion_block"
+    },
+    "@": {
+      "item": "technical_craft:beamion_resistance_block"
+    },
+    "-": {
+      "item": "minecraft:wheat_seeds"
+    }
+  },
+  "result": {
+    "item": "technical_craft:beamion_seeds"
+  }
+}

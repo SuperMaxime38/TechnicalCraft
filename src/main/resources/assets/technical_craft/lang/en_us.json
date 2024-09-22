@@ -15,5 +15,7 @@
   "block.technical_craft.beamion_crop": "Beamion Crop",
   "block.technical_craft.wire": "Wire",
 
-  "itemGroup.technical_craft_tab": "Technical Craft Tab"
+  "itemGroup.technical_craft_tab": "Technical Craft Tab",
+
+  "entity.minecraft.villager.technical_craft.metal_beam_master": "Metal Beam Master"
 }

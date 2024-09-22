@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import fr.maxime38.technical_craft.block.ModBlocks;
 import fr.maxime38.technical_craft.item.ModItems;
 import fr.maxime38.technical_craft.villager.ModVillager;
+import fr.maxime38.technical_craft.world.feature.ModConfiguredFeatures;
+import fr.maxime38.technical_craft.world.feature.ModPlacedFeatures;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,6 +32,9 @@ public class TechnicalCraft
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModVillager.register(modEventBus);
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

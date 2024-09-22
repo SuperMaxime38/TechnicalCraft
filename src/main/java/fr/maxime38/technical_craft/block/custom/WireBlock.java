@@ -3,20 +3,20 @@ package fr.maxime38.technical_craft.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.extensions.IForgeBlock;
 import org.jetbrains.annotations.Nullable;
 
-public class WireBlock extends Block implements IForgeBlock{
+import java.net.HttpRetryException;
+
+public class WireBlock extends Block {
     // Propriété pour gérer le signal de 0 à 15 (4 bits)
     public static final IntegerProperty SIGNAL = IntegerProperty.create("signal", 0, 15);
-    public static final IntegerProperty LIGHT = IntegerProperty.create("light", 0, 4);
 
     public WireBlock(BlockBehaviour.Properties properties) {
         super(properties);
@@ -42,17 +42,22 @@ public class WireBlock extends Block implements IForgeBlock{
         }
     }
 
-    // Mise à jour du signal
+    // Méthode pour vérifier si le bloc doit surveiller les signaux faibles (comme les torches de redstone)
+
+
+    @Override
+    public boolean shouldCheckWeakPower(BlockState state, LevelReader level, BlockPos pos, Direction side) {
+        return true;
+    }
+
+    // Mise à jour du signal (y compris la réinitialisation à 0 si aucune source n'est présente)
     private void updateSignal(Level world, BlockPos pos, BlockState state) {
         int inputSignal = getStrongestNeighborSignal(world, pos);
+
+        // Si le signal détecté est différent de l'actuel, mettre à jour le bloc
         if (inputSignal != state.getValue(SIGNAL)) {
             world.setBlock(pos, state.setValue(SIGNAL, inputSignal), 3);
-            if(state.getValue(SIGNAL) > 0) {
-                state.setValue(LIGHT, 4);
-            } else {
-                state.setValue(LIGHT, 0);
-            }
-            world.updateNeighborsAt(pos, this); // Notifie les voisins que le signal a changé
+            notifyNeighbors(world, pos);
         }
     }
 
@@ -65,8 +70,34 @@ public class WireBlock extends Block implements IForgeBlock{
                 maxSignal = neighborSignal;
             }
         }
-        return Math.min(maxSignal, 15); // Limité à 4 bits (0-15)
+        return maxSignal; // Retourne 0 si aucune source n'est détectée
     }
+
+    // Notifier tous les voisins pour forcer la mise à jour des signaux redstone
+    private void notifyNeighbors(Level world, BlockPos pos) {
+        for (Direction direction : Direction.values()) {
+            world.updateNeighborsAt(pos.relative(direction), this);
+        }
+    }
+
+    // Méthode pour transmettre un signal de redstone (méthode indirecte)
+
+
+    @Override
+    public int getSignal(BlockState state, BlockGetter p_60484_, BlockPos p_60485_, Direction p_60486_) {
+        return state.getValue(SIGNAL);
+    }
+
+    // Méthode pour transmettre un signal direct (comme les comparateurs, repeaters)
+
+
+    @Override
+    public int getDirectSignal(BlockState state, BlockGetter p_60560_, BlockPos p_60561_, Direction p_60562_) {
+        return state.getValue(SIGNAL);
+    }
+
+    // Permet de se connecter à d'autres composants de redstone
+
 
     @Override
     public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, @Nullable Direction direction) {
@@ -74,24 +105,7 @@ public class WireBlock extends Block implements IForgeBlock{
     }
 
     @Override
-    public int getDirectSignal(BlockState state, BlockGetter getter, BlockPos pos, Direction direction) {
-        return state.getValue(SIGNAL);
-    }
-
-    @Override
-    public int getSignal(BlockState state, BlockGetter p_60484_, BlockPos p_60485_, Direction p_60486_) {
-        return state.getValue(SIGNAL);
-    }
-
-    @Override
     public boolean isSignalSource(BlockState state) {
         return true; // Le bloc est une source de signal de redstone
-    }
-
-    public static int getLightLevel(BlockState state) {
-        if(state.getValue(SIGNAL) > 0) {
-            return 3;
-        }
-        return 0;
     }
 }

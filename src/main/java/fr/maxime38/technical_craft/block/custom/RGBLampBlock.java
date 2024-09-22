@@ -1,6 +1,7 @@
 package fr.maxime38.technical_craft.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -16,11 +17,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class RGBLampBlock extends Block {
 
-    public static final BooleanProperty LIT = BooleanProperty.create("lit");
-    public static final BooleanProperty RED = BooleanProperty.create("red");
-    public static final BooleanProperty GREEN = BooleanProperty.create("green");
-    public static final BooleanProperty BLUE = BooleanProperty.create("blue");
-    public static final IntegerProperty COLOR_STATE = IntegerProperty.create("colorstate", 0, 3);
+
+    public static final IntegerProperty COLOR_STATE = IntegerProperty.create("colorstate", 0, 15);
 
     public RGBLampBlock(Properties properties) {
         super(properties);
@@ -29,31 +27,45 @@ public class RGBLampBlock extends Block {
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND) {
-            level.setBlock(pos, state.cycle(LIT), 3);
-
-            if(state.getValue(COLOR_STATE) == 0) {
-                level.setBlock(pos, state.cycle(RED), 4);
-            }
-            if(state.getValue(COLOR_STATE) == 1) {
-                level.setBlock(pos, state.cycle(GREEN), 5);
-            }
-            if(state.getValue(COLOR_STATE) == 2) {
-                level.setBlock(pos, state.cycle(BLUE), 6);
-            }
-
-            state.cycle(COLOR_STATE);
-            player.sendSystemMessage(Component.literal("State (lit): " + LIT + ", COLOR_STATE: "+ COLOR_STATE));
+            player.sendSystemMessage(Component.literal("COLOR_STATE: "+ COLOR_STATE));
         }
 
         return super.use(state, level, pos, player, hand, hitResult);
     }
 
+
+    @Override
+    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos neighborPos, boolean isMoving) {
+        if (!world.isClientSide()) {
+            updateSignal(world, pos, state);
+        }
+    }
+
+    // Mise à jour du signal (y compris la réinitialisation à 0 si aucune source n'est présente)
+    private void updateSignal(Level world, BlockPos pos, BlockState state) {
+        int inputSignal = getStrongestNeighborSignal(world, pos);
+
+        // Si le signal détecté est différent de l'actuel, mettre à jour le bloc
+        if (inputSignal != state.getValue(COLOR_STATE)) {
+            world.setBlock(pos, state.setValue(COLOR_STATE, inputSignal), 3);
+        }
+    }
+
+
+    // Obtenir le signal maximum des blocs voisins
+    private int getStrongestNeighborSignal(Level world, BlockPos pos) {
+        int maxSignal = 0;
+        for (Direction direction : Direction.values()) {
+            int neighborSignal = world.getSignal(pos.relative(direction), direction.getOpposite());
+            if (neighborSignal > maxSignal) {
+                maxSignal = neighborSignal;
+            }
+        }
+        return maxSignal; // Retourne 0 si aucune source n'est détectée
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(LIT);
-        builder.add(RED);
-        builder.add(GREEN);
-        builder.add(BLUE);
         builder.add(COLOR_STATE);
     }
 }

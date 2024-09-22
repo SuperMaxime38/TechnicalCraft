@@ -1,14 +1,20 @@
 {
   "variants": {
-    "lit=false": { "model":  "technical_craft:block/rgb_lamp/rgb_lamp_off"},
-    "lit=true,red=true,green=false,blue=false": {"model": "technical_craft:block/rgb_lamp/red"},
-    "lit=true,red=false,green=true,blue=false": {"model": "technical_craft:block/rgb_lamp/green"},
-    "lit=true,red=false,green=false,blue=true": {"model": "technical_craft:block/rgb_lamp/blue"},
-    "lit=true,red=true,green=true,blue=false": {"model": "technical_craft:block/rgb_lamp/yellow"},
-    "lit=true,red=true,green=false,blue=true": {"model": "technical_craft:block/rgb_lamp/purple"},
-    "lit=true,red=false,green=true,blue=true": {"model": "technical_craft:block/rgb_lamp/aqua"},
-    "lit=true,red=true,green=true,blue=true": {"model": "technical_craft:block/rgb_lamp/white"},
-
-    "lit=true,red=false,green=false,blue=false": {"model": "technical_craft:block/rgb_lamp/white"}
+    "colorstate=0": {"model":  "technical_craft:block/rgb_lamp/rgb_lamp_off"},
+    "colorstate=1": {"model":  "technical_craft:block/rgb_lamp/rgb_lamp_off"},
+    "colorstate=2": {"model":  "technical_craft:block/rgb_lamp/blue"},
+    "colorstate=3": {"model":  "technical_craft:block/rgb_lamp/blue"},
+    "colorstate=4": {"model":  "technical_craft:block/rgb_lamp/green"},
+    "colorstate=5": {"model":  "technical_craft:block/rgb_lamp/green"},
+    "colorstate=6": {"model":  "technical_craft:block/rgb_lamp/aqua"},
+    "colorstate=7": {"model":  "technical_craft:block/rgb_lamp/aqua"},
+    "colorstate=8": {"model":  "technical_craft:block/rgb_lamp/red"},
+    "colorstate=9": {"model":  "technical_craft:block/rgb_lamp/red"},
+    "colorstate=10": {"model":  "technical_craft:block/rgb_lamp/purple"},
+    "colorstate=11": {"model":  "technical_craft:block/rgb_lamp/purple"},
+    "colorstate=12": {"model":  "technical_craft:block/rgb_lamp/yellow"},
+    "colorstate=13": {"model":  "technical_craft:block/rgb_lamp/yellow"},
+    "colorstate=14": {"model":  "technical_craft:block/rgb_lamp/white"},
+    "colorstate=15": {"model":  "technical_craft:block/rgb_lamp/white"}
   }
 }

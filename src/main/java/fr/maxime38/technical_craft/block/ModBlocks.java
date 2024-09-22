@@ -64,7 +64,7 @@ public class ModBlocks {
                     BlockBehaviour.Properties
                             .of(Material.GLASS)
                             .strength(4f)
-                            .lightLevel(state -> state.getValue(RGBLampBlock.LIT) ? 15 : 0))
+                            .lightLevel(state -> state.getValue(RGBLampBlock.COLOR_STATE)))
 
             , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 
@@ -105,8 +105,7 @@ public class ModBlocks {
             () -> new WireBlock(
                     BlockBehaviour.Properties
                             .of(Material.METAL)
-                            .strength(3.5f)
-                            .lightLevel(state -> state.getValue(WireBlock.LIGHT)))
+                            .strength(3.5f))
 
             , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 

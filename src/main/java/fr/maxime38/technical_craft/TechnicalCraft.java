@@ -3,6 +3,7 @@ package fr.maxime38.technical_craft;
 import com.mojang.logging.LogUtils;
 import fr.maxime38.technical_craft.block.ModBlocks;
 import fr.maxime38.technical_craft.item.ModItems;
+import fr.maxime38.technical_craft.networking.ModPackets;
 import fr.maxime38.technical_craft.villager.ModVillager;
 import fr.maxime38.technical_craft.world.feature.ModConfiguredFeatures;
 import fr.maxime38.technical_craft.world.feature.ModPlacedFeatures;
@@ -46,6 +47,8 @@ public class TechnicalCraft
         event.enqueueWork(() -> {
             ModVillager.registerPOIs();
         });
+
+        ModPackets.register();
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

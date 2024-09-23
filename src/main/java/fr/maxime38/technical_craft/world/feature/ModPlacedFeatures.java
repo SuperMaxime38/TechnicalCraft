@@ -17,8 +17,8 @@ public class ModPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> BEAMION_ORE_PLACED = PLACED_FEATURES.register("beamion_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.BEAMION_ORE.getHolder().get(),
-                    commonOrePlacement(4, // VeinsPerChunk
-                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-14), VerticalAnchor.aboveBottom(19)))));
+                    rareOrePlacement(4, // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-24), VerticalAnchor.aboveBottom(39)))));
 
 
     public static List<PlacementModifier> orePlacement(PlacementModifier pMod, PlacementModifier pMod2) {

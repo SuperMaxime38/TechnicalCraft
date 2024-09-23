@@ -17,5 +17,8 @@
 
   "itemGroup.technical_craft_tab": "Technical Craft Tab",
 
-  "entity.minecraft.villager.technical_craft.metal_beam_master": "Metal Beam Master"
+  "entity.minecraft.villager.technical_craft.metal_beam_master": "Metal Beam Master",
+
+  "key.category.technical_craft.technicalcraft": "TechnicalCraft Helper",
+  "key.technical_craft.open_help": "Open Help"
 }

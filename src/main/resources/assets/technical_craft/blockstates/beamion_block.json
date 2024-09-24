@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": { "model":  "technical_craft:block/beamion_block"}
+    "facing=north": {
+      "model":  "technical_craft:block/beamion_block"
+    },
+    "facing=south": {
+      "model":  "technical_craft:block/beamion_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model":  "technical_craft:block/beamion_block",
+      "y": 270
+    },
+    "facing=east": {
+      "model":  "technical_craft:block/beamion_block",
+      "y": 90
+    }
   }
 }

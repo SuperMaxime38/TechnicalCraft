@@ -30,9 +30,9 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TechnicalCraft.MODID);
 
     public static final RegistryObject<Block> BEAMION_BLOCK = registerBlock("beamion_block",
-            () -> new Block(
+            () -> new BeamionBlock(
                     BlockBehaviour.Properties
-                            .of(Material.STONE)
+                            .of(Material.HEAVY_METAL)
                             .strength(6f)
                             .requiresCorrectToolForDrops())
 
@@ -41,7 +41,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BEAMION_ORE = registerBlock("beamion_ore",
             () -> new DropExperienceBlock(
                     BlockBehaviour.Properties
-                            .of(Material.STONE)
+                            .of(Material.METAL)
                             .strength(6f)
                             .requiresCorrectToolForDrops()
                     , UniformInt.of(1, 4))

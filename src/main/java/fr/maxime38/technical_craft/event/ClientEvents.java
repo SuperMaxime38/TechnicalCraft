@@ -1,6 +1,8 @@
 package fr.maxime38.technical_craft.event;
 
 import fr.maxime38.technical_craft.TechnicalCraft;
+import fr.maxime38.technical_craft.networking.ModPackets;
+import fr.maxime38.technical_craft.networking.packet.ExampleC2SPacket;
 import fr.maxime38.technical_craft.util.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -19,6 +21,7 @@ public class ClientEvents {
         public static void onKeyInput(InputEvent.Key event) {
             if(KeyBinding.HELPER_KEY.consumeClick()) {
                 Minecraft.getInstance().player.sendSystemMessage(Component.literal("Pressed help (there's no help lol)"));
+                ModPackets.sendToServer(new ExampleC2SPacket());
             }
         }
     }

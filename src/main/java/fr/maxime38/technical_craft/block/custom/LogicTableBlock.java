@@ -3,7 +3,10 @@ package fr.maxime38.technical_craft.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -13,20 +16,15 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Function;
-import java.util.stream.Stream;
-
-public class BeamionBlock extends HorizontalDirectionalBlock {
+public class LogicTableBlock extends HorizontalDirectionalBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public BeamionBlock(Properties properties) {
+    public LogicTableBlock(Properties properties) {
         super(properties);
     }
 
-    private static final VoxelShape SHAPE = Shapes.or(Block.box(0, 0, 0, 16, 1, 16),
-            Block.box(5, 1, 0, 11, 15, 16),
-            Block.box(0, 15, 0, 16, 16, 16));
+    private static final VoxelShape SHAPE = Block.box(0, 0, 0, 15.9, 10, 15.9);
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context) {

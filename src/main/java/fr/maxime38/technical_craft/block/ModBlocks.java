@@ -109,6 +109,14 @@ public class ModBlocks {
 
             , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
 
+    public static final RegistryObject<Block> LOGIC_TABLE = registerBlock("logic_table",
+            () -> new LogicTableBlock(
+                    BlockBehaviour.Properties
+                            .of(Material.WOOD)
+                            .strength(3f))
+
+            , ModCreativeModeTab.TECHNICAL_CRAFT_TAB);
+
 
 
     // UTILS FUNCTION THAT ARE NOT BLOCKS

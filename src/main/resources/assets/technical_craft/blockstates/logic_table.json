@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model":  "technical_craft:block/logic_table"
+    },
+    "facing=south": {
+      "model":  "technical_craft:block/logic_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model":  "technical_craft:block/logic_table",
+      "y": 270
+    },
+    "facing=east": {
+      "model":  "technical_craft:block/logic_table",
+      "y": 90
+    }
+  }
+}
